@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "478924186518",
+    "project_id": "homesync-581a7",
+    "storage_bucket": "homesync-581a7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478924186518:android:440d06cac60aca429ef3b7",
+        "android_client_info": {
+          "package_name": "com.example.homesync"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9uI7iKmGjf8j3rWrFWYk3uYNB3WEX-HY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
