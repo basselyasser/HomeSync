@@ -1,0 +1,217 @@
+HomeSync code-level test checks
+Commit: d9b139f   Date: 2026-11-06   Checks: 79
+==============================================================================
+[DEFECT ] TC-NAV-01   initialRoute is HomeScreen, which overrides home: SplashScreen2
+            at lib/main.dart:46
+[DEFECT ] TC-NAV-02   App starts at SplashScreen2; nothing ever opens SplashScreen1
+            at lib/main.dart:65
+[OK     ] TC-NAV-02   Splash 2 replaces itself with Login, so Back does not return to splash
+            at lib/views/screens/splash_screen_2.dart:56
+[OK     ] TC-LOG-02   Empty email message
+            at lib/views/screens/login_screen.dart:82
+[OK     ] TC-LOG-02   No request sent when the form is invalid
+            at lib/views/screens/login_screen.dart:27
+[OK     ] TC-LOG-03   Email without @ is rejected
+            at lib/views/screens/login_screen.dart:83
+[DEFECT ] TC-LOG-04   Only 'user-not-found' and 'wrong-password' are handled; invalid-email falls back to a generic message
+            at lib/views/screens/login_screen.dart:45
+[OK     ] TC-LOG-05   Empty password message
+            at lib/views/screens/login_screen.dart:88
+[OK     ] TC-LOG-06   5 chars rejected
+            at lib/views/screens/login_screen.dart:89
+[OK     ] TC-LOG-07   6 chars accepted (strictly less than 6 is rejected)
+            at lib/views/screens/login_screen.dart:89
+[OK     ] TC-LOG-07   Login request is sent after validation
+            at lib/views/screens/login_screen.dart:32
+[DEFECT ] TC-LOG-08   No handling for 'invalid-credential' (returned by Firebase when email enumeration protection is on)
+            at lib/views/screens/login_screen.dart:45
+[DEFECT ] TC-LOG-09   No handling for 'invalid-credential' (returned by Firebase when email enumeration protection is on)
+            at lib/views/screens/login_screen.dart:45
+[OK     ] TC-LOG-10   Email is trimmed before login
+            at lib/views/screens/login_screen.dart:33
+[OK     ] TC-LOG-11   Password field is masked
+            at lib/views/screens/login_screen.dart:130
+[OK     ] TC-LOG-12   Button disabled while loading
+            at lib/views/screens/login_screen.dart:96
+[OK     ] TC-LOG-13   Sign up link opens Register
+            at lib/views/screens/login_screen.dart:112
+[DEFECT ] TC-LOG-14   'network-request-failed' is not handled; user sees a generic message
+            at lib/views/screens/login_screen.dart:45
+[OK     ] TC-LOG-14   Spinner stops after an error
+            at lib/views/screens/login_screen.dart:53
+[DEFECT ] TC-REG-01   Only Firebase errors are caught; if POST /users/ fails, the error is unhandled (account exists in Firebase but not in the backend)
+            at lib/views/screens/register_screen.dart:66
+[OK     ] TC-REG-02   Empty username message
+            at lib/views/screens/register_screen.dart:98
+[OK     ] TC-REG-03   Username under 3 chars rejected
+            at lib/views/screens/register_screen.dart:100
+[OK     ] TC-REG-03   Username length message
+            at lib/views/screens/register_screen.dart:101
+[OK     ] TC-REG-04   3 chars accepted
+            at lib/views/screens/register_screen.dart:100
+[OK     ] TC-REG-05   Email without @ rejected
+            at lib/views/screens/register_screen.dart:108
+[OK     ] TC-REG-06   Password boundary is 6
+            at lib/views/screens/register_screen.dart:116
+[OK     ] TC-REG-07   Mismatch message
+            at lib/views/screens/register_screen.dart:126
+[OK     ] TC-REG-08   Firebase error text is shown
+            at lib/views/screens/register_screen.dart:68
+[OK     ] TC-REG-08   Backend user is created only after Firebase succeeds, so no duplicate
+            at lib/views/screens/register_screen.dart:40
+[OK     ] TC-REG-09   Login link opens Login
+            at lib/views/screens/register_screen.dart:157
+[DEFECT ] TC-PWD-01   Login screen has no link to ForgotPasswordScreen
+            at not present anywhere in lib/views/screens/login_screen.dart
+[DEFECT ] TC-PWD-02   SUBMIT handler is empty
+            at lib/views/screens/forget_password_screen.dart:90
+[DEFECT ] TC-PWD-02   _formKey is never attached to a Form, so validate() is never true
+            at not present anywhere in lib/views/screens/forget_password_screen.dart
+[OK     ] TC-HOME-03  Weather error text
+            at lib/views/screens/home_screen.dart:244
+[OK     ] TC-HOME-03  Weather errors return null instead of crashing
+            at lib/services/api_service.dart:456
+[DEFECT ] TC-HOME-04  API value is multiplied by 2
+            at lib/providers/prediction_provider.dart:28
+[OK     ] TC-HOME-04  Cost rate 1.3 EGP/kWh
+            at lib/views/screens/home_screen.dart:126
+[OK     ] TC-HOME-04  Cost shown with 2 decimals
+            at lib/views/screens/home_screen.dart:158
+[OK     ] TC-HOME-05  Logout replaces Home with Login
+            at lib/views/screens/home_screen.dart:95
+[DEFECT ] TC-HOME-05  (Extra finding, does not fail this case) Login pushes Home on top of Login, so Back on Home goes to Login while still signed in
+            at lib/views/screens/login_screen.dart:43
+[DEFECT ] TC-ROOM-01  No screen navigates to RoomsPage (only registered in main.dart routes)
+            at no usage found
+[DEFECT ] TC-ROOM-01  Rooms list is hard-coded empty
+            at lib/views/screens/rooms_screen.dart:16
+[DEFECT ] TC-ROOM-01  Rooms screen never calls fetchRooms()
+            at not present anywhere in lib/views/screens/rooms_screen.dart
+[DEFECT ] TC-ROOM-02  Create sends 'user_id'...
+            at lib/services/api_service.dart:570
+[DEFECT ] TC-ROOM-02  ...but the list filters on 'user'
+            at lib/services/api_service.dart:275
+[DEFECT ] TC-ROOM-02  New room is never added to the list after create
+            at not present anywhere in lib/views/screens/rooms_screen.dart
+[DEFECT ] TC-ROOM-03  Empty name returns silently
+            at lib/views/screens/rooms_screen.dart:25
+[DEFECT ] TC-ROOM-04  Spaces-only name is trimmed, then returns silently
+            at lib/views/screens/rooms_screen.dart:24
+[OK     ] TC-ROOM-06  Cancel closes the dialog without saving
+            at lib/views/screens/rooms_screen.dart:62
+[DEFECT ] TC-DEV-01   All Devices grid has no children
+            at lib/views/screens/devices_screen.dart:60
+[DEFECT ] TC-SW-03    Toggle has no try/catch, so a backend error shows no message
+            at lib/views/screens/switch_screen.dart:98
+[DEFECT ] TC-PLUG-01  API call is commented out
+            at lib/views/screens/smart_plug_screen.dart:74
+[DEFECT ] TC-PLUG-01  Message only shows for 50 ms
+            at lib/views/screens/smart_plug_screen.dart:78
+[DEFECT ] TC-AC-01    Screen is stateless: slider changes are never redrawn
+            at lib/views/screens/ac_slider_screen.dart:4
+[OK     ] TC-AC-01    Configured range 16-30
+            at lib/views/screens/ac_slider_screen.dart:74
+[DEFECT ] TC-AC-02    Value changes without setState
+            at lib/views/screens/ac_slider_screen.dart:78
+[OK     ] TC-AC-02    Step of 1 degree (14 divisions)
+            at lib/views/screens/ac_slider_screen.dart:76
+[DEFECT ] TC-AC-03    Mode changes without setState: Cool stays highlighted
+            at lib/views/screens/ac_slider_screen.dart:128
+[DEFECT ] TC-AC-04    Fan speed changes without setState
+            at lib/views/screens/ac_slider_screen.dart:158
+[DEFECT ] TC-AC-05    Message always says Off
+            at lib/views/screens/ac_slider_screen.dart:186
+[DEFECT ] TC-AC-05    No API call is made
+            at lib/views/screens/ac_slider_screen.dart:182
+[OK     ] TC-SERVO-02 Value sent on release only
+            at lib/views/screens/servo_slider_screen.dart:117
+[OK     ] TC-SERVO-04 Error message on failure
+            at lib/views/screens/servo_slider_screen.dart:56
+[OK     ] TC-RULE-01  Temperature min -10
+            at lib/views/screens/sensor_rule_screen.dart:268
+[OK     ] TC-RULE-01  Temperature max 50
+            at lib/views/screens/sensor_rule_screen.dart:276
+[OK     ] TC-RULE-01  60 divisions = step 1
+            at lib/views/screens/sensor_rule_screen.dart:284
+[OK     ] TC-RULE-02  Smoke (5000-500)/45 = step 100
+            at lib/views/screens/sensor_rule_screen.dart:286
+[OK     ] TC-RULE-02  Light (8000-2000)/120 = step 50
+            at lib/views/screens/sensor_rule_screen.dart:287
+[OK     ] TC-RULE-02  Humidity 0-100 = step 1
+            at lib/views/screens/sensor_rule_screen.dart:285
+[DEFECT ] TC-RULE-03  (Extra finding) Saved threshold is loaded without setState after the slider was already set to the midpoint
+            at lib/views/screens/sensor_rule_screen.dart:52
+[DEFECT ] TC-RULE-06  Failed save only goes to the debug log
+            at lib/views/screens/sensor_rule_screen.dart:99
+[DEFECT ] TC-IP-01    The IP dialog is never opened from any screen (only its definition exists)
+            at no usage found
+[DEFECT ] TC-IP-01    Backend mode ignores the saved 'home_assistant_ip'
+            at lib/services/api_service.dart:15
+[DEFECT ] TC-IP-01    Backend IP is hard-coded
+            at lib/main.dart:23, lib/providers/prediction_provider.dart:21, lib/services/api_service.dart:16
+[DEFECT ] TC-IP-02    Any text is saved with no validation (and untrimmed)
+            at lib/views/widgets/show_popup_ipaddress.dart:32
+[DEFECT ] SD-12       Same route id used twice
+            at lib/views/screens/smart_plug_screen.dart:9, lib/views/screens/switch_screen.dart:17
+[DEFECT ] SD-13       Firestore open to anyone
+            at firestore.rules:6
+[DEFECT ] DOC         README refers to lib/configs/secrets.example.dart, which is not in the repo
+            at README.md:55
+[DEFECT ] DOC         README shows screenshots/ images that are not in the repo
+            at README.md:21
+==============================================================================
+Result per test case (code level only):
+  TC-NAV-01   FAIL
+  TC-NAV-02   FAIL
+  TC-LOG-02   PASS
+  TC-LOG-03   PASS
+  TC-LOG-04   FAIL
+  TC-LOG-05   PASS
+  TC-LOG-06   PASS
+  TC-LOG-07   PASS
+  TC-LOG-08   FAIL
+  TC-LOG-09   FAIL
+  TC-LOG-10   PASS
+  TC-LOG-11   PASS
+  TC-LOG-12   PASS
+  TC-LOG-13   PASS
+  TC-LOG-14   FAIL
+  TC-REG-01   FAIL
+  TC-REG-02   PASS
+  TC-REG-03   PASS
+  TC-REG-04   PASS
+  TC-REG-05   PASS
+  TC-REG-06   PASS
+  TC-REG-07   PASS
+  TC-REG-08   PASS
+  TC-REG-09   PASS
+  TC-PWD-01   FAIL
+  TC-PWD-02   FAIL
+  TC-HOME-03  PASS
+  TC-HOME-04  FAIL
+  TC-HOME-05  PASS
+  TC-ROOM-01  FAIL
+  TC-ROOM-02  FAIL
+  TC-ROOM-03  FAIL
+  TC-ROOM-04  FAIL
+  TC-ROOM-06  PASS
+  TC-DEV-01   FAIL
+  TC-SW-03    FAIL
+  TC-PLUG-01  FAIL
+  TC-AC-01    FAIL
+  TC-AC-02    FAIL
+  TC-AC-03    FAIL
+  TC-AC-04    FAIL
+  TC-AC-05    FAIL
+  TC-SERVO-02 PASS
+  TC-SERVO-04 PASS
+  TC-RULE-01  PASS
+  TC-RULE-02  PASS
+  TC-RULE-06  FAIL
+  TC-IP-01    FAIL
+  TC-IP-02    FAIL
+  SD-12       FAIL
+  SD-13       FAIL
+  DOC         FAIL
+
+52 items checked, 24 pass, 28 fail
