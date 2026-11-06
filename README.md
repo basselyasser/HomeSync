@@ -60,7 +60,33 @@ lib/
    flutter run
    ```
 
+## Testing
+
+The app has 61 manual and 22 API test cases, designed with equivalence partitioning, boundary
+value analysis, decision tables, state transition and error guessing.
+
+- Test cases and results: [testing/HomeSync_Test_Cases.xlsx](testing/HomeSync_Test_Cases.xlsx)
+- Test report: [testing/README.md](testing/README.md)
+- Code check script and its output: [testing/code_checks.py](testing/code_checks.py), [testing/code_checks_output.txt](testing/code_checks_output.txt)
+- Bug reports: [testing/bug_reports/](testing/bug_reports/README.md)
+
+The first test cycle (6 November 2026, commit `d9b139f`) was run at code level. 23 tests passed,
+22 failed and 38 were blocked because they need the backend or the hardware. 20 bugs were logged,
+6 of them high severity. The blocked tests will be run on a device in the next cycle.
+
 ## Team
 
 Graduation project team, Arab Academy for Science, Technology and Maritime Transport.
-My part: designed and built the Home and Rooms screens in Flutter to monitor and operate all connected devices in real time, while programming the ESP32 to handle Wi-Fi communication and run local automation rules linking sensors to actuators like motors and lamps, and integrating both the hardware and mobile app with the Home Assistant API for continuous state synchronization across the entire system..
+
+My part:
+
+I designed and built the Home and Rooms screens in Flutter to monitor and operate all connected
+devices in real time. I programmed the ESP32 to handle Wi-Fi communication and run local
+automation rules that link sensors to actuators such as motors and lamps, and I integrated the
+hardware and the mobile app with the Home Assistant API to keep device states in sync.
+
+I was also responsible for testing. I wrote 83 test cases (61 manual and 22 API) covering login,
+registration, rooms, device control, automation rules and the backend endpoints. I ran the first
+test cycle at code level, checking each result against the source code, and logged 20 bugs with
+steps to reproduce, expected and actual results, and links to the code. The test cases, report
+and bug reports are in the [testing](testing/README.md) folder.
