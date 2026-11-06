@@ -169,14 +169,14 @@ Result per test case (code level only):
   TC-LOG-05   PASS
   TC-LOG-06   PASS
   TC-LOG-07   PASS
-  TC-LOG-08   FAIL
-  TC-LOG-09   FAIL
+  TC-LOG-08   BLOCKED
+  TC-LOG-09   BLOCKED
   TC-LOG-10   PASS
   TC-LOG-11   PASS
   TC-LOG-12   PASS
   TC-LOG-13   PASS
   TC-LOG-14   FAIL
-  TC-REG-01   FAIL
+  TC-REG-01   BLOCKED
   TC-REG-02   PASS
   TC-REG-03   PASS
   TC-REG-04   PASS
@@ -203,7 +203,7 @@ Result per test case (code level only):
   TC-AC-03    FAIL
   TC-AC-04    FAIL
   TC-AC-05    FAIL
-  TC-SERVO-02 PASS
+  TC-SERVO-02 BLOCKED
   TC-SERVO-04 PASS
   TC-RULE-01  PASS
   TC-RULE-02  PASS
@@ -214,4 +214,4 @@ Result per test case (code level only):
   SD-13       FAIL
   DOC         FAIL
 
-52 items checked, 24 pass, 28 fail
+52 items checked, 23 pass, 25 fail, 4 blocked

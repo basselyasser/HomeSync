@@ -146,6 +146,10 @@ CHECKS = [
     ("DOC", "defect", "README.md", r"screenshots/home\.png", "README shows screenshots/ images that are not in the repo"),
 ]
 
+# These tests are Blocked in the workbook: the result needs the server or the hardware.
+# Their checks are only notes about what the code shows, so they are reported as BLOCKED.
+BLOCKED = {"TC-LOG-08", "TC-LOG-09", "TC-REG-01", "TC-SERVO-02"}
+
 # For checks marked "lib", search every Dart file and skip definitions/route tables.
 SKIP_FOR_USAGE = {
     "TC-ROOM-01": ["lib/main.dart", "lib/views/screens/rooms_screen.dart"],
@@ -222,10 +226,12 @@ def main():
 
     print("=" * 78)
     print("Result per test case (code level only):")
+    counts = {"PASS": 0, "FAIL": 0, "BLOCKED": 0}
     for tc, ok in results.items():
-        print(f"  {tc:<11} {'PASS' if ok else 'FAIL'}")
-    fails = sum(1 for v in results.values() if not v)
-    print(f"\n{len(results)} items checked, {len(results) - fails} pass, {fails} fail")
+        verdict = "BLOCKED" if tc in BLOCKED else ("PASS" if ok else "FAIL")
+        counts[verdict] += 1
+        print(f"  {tc:<11} {verdict}")
+    print(f"\n{len(results)} items checked, {counts['PASS']} pass, {counts['FAIL']} fail, {counts['BLOCKED']} blocked")
 
 
 if __name__ == "__main__":
