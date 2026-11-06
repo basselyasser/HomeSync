@@ -3,7 +3,7 @@
 - Severity: Low
 - Related tests: SD-12 (code review)
 - Build: commit `d9b139f` (main, 5 Nov 2026)
-- Found by: code review (see `testing/static_checks.py`). To be confirmed on a device.
+- Found by: code review (see `testing/code_checks.py`). To be confirmed on a device.
 
 ## Steps to reproduce
 1. Compare SwitchScreen.id and SmartPlugControlScreen.id

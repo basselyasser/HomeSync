@@ -3,7 +3,7 @@
 - Severity: Medium
 - Related tests: TC-LOG-04, TC-LOG-14, TC-LOG-08, TC-LOG-09, SD-03
 - Build: commit `d9b139f` (main, 5 Nov 2026)
-- Found by: code review (see `testing/static_checks.py`). To be confirmed on a device.
+- Found by: code review (see `testing/code_checks.py`). To be confirmed on a device.
 
 ## Steps to reproduce
 1. Enter 'test@' and a 6+ char password

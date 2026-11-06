@@ -65,9 +65,9 @@ lib/
 The app has 61 manual and 22 API test cases, designed with equivalence partitioning, boundary
 value analysis, decision tables, state transition and error guessing.
 
-- Test cases and results: [testing/HomeSync_Test_Cases_Executed.xlsx](testing/HomeSync_Test_Cases_Executed.xlsx)
+- Test cases and results: [testing/HomeSync_Test_Cases.xlsx](testing/HomeSync_Test_Cases.xlsx)
 - Test report: [testing/README.md](testing/README.md)
-- Evidence: [testing/evidence/static_check_results.txt](testing/evidence/static_check_results.txt) (output of [testing/static_checks.py](testing/static_checks.py))
+- Code check script and its output: [testing/code_checks.py](testing/code_checks.py), [testing/code_checks_output.txt](testing/code_checks_output.txt)
 - Bug reports: [testing/bug_reports/](testing/bug_reports/README.md)
 
 The first test cycle (6 November 2026, commit `d9b139f`) was run at code level. 23 tests passed,

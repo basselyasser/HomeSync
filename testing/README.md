@@ -6,9 +6,9 @@ Build tested: main branch, commit [d9b139f](https://github.com/basselyasser/Home
 
 ## Files in this folder
 
-- `HomeSync_Test_Cases_Executed.xlsx`: all test cases with their results
-- `static_checks.py`: script used to check each result against the code
-- `evidence/static_check_results.txt`: output of the script
+- `HomeSync_Test_Cases.xlsx`: all test cases with their results
+- `code_checks.py`: script used to check each result against the code
+- `code_checks_output.txt`: output of the script
 - `bug_reports/`: one file per bug found
 
 ## Scope
@@ -23,10 +23,10 @@ The backend server, Firebase project, Home Assistant and ESP32 hardware were not
 
 I marked a test as Pass or Fail only when the code alone decides the result, for example form validation, navigation, or a button that has no handler. When the result depends on the server or the hardware, I marked it as Blocked and wrote down what the code shows.
 
-To make the results easy to check, `static_checks.py` searches for the line of code behind each verdict and prints the file name and line number. You can run it from the repository root:
+To make the results easy to check, `code_checks.py` searches for the line of code behind each verdict and prints the file name and line number. You can run it from the repository root:
 
 ```
-python testing/static_checks.py
+python testing/code_checks.py
 ```
 
 After a bug is fixed, the related test changes from FAIL to PASS in the output.
@@ -64,4 +64,4 @@ The areas that work as expected in the code are login and registration form vali
 
 1. Run the 38 blocked tests on an Android device with the backend, Firebase, Home Assistant and ESP32 running, and run the API tests in Postman.
 2. Confirm each bug on a device and add a screenshot before reporting it as a GitHub issue.
-3. Retest after the fixes and run `static_checks.py` again.
+3. Retest after the fixes and run `code_checks.py` again.

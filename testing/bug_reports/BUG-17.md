@@ -3,7 +3,7 @@
 - Severity: Low
 - Related tests: TC-IP-02, SD-11
 - Build: commit `d9b139f` (main, 5 Nov 2026)
-- Found by: code review (see `testing/static_checks.py`). To be confirmed on a device.
+- Found by: code review (see `testing/code_checks.py`). To be confirmed on a device.
 
 ## Steps to reproduce
 1. Open the IP dialog

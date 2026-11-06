@@ -1,13 +1,13 @@
 """
-HomeSync - code-level test checks
-=================================
+HomeSync code checks
+====================
 Runs the checks behind the "[Code review]" verdicts in
-HomeSync_Test_Cases_Executed.xlsx. Each check looks for a specific line of code
+HomeSync_Test_Cases.xlsx. Each check looks for a specific line of code
 and reports the file and line number, so every verdict can be traced to the source.
 
 Usage (from the repository root):
-    python testing/static_checks.py            # prints the report
-    python testing/static_checks.py > testing/evidence/static_check_results.txt
+    python testing/code_checks.py            # prints the report
+    python testing/code_checks.py > testing/code_checks_output.txt
 
 Check kinds:
     expect - the code needed for the expected result must be present
@@ -193,11 +193,11 @@ def run_check(tc, kind, path, pattern):
 
 def main():
     try:
-        commit = subprocess.check_output(["git", "-C", ROOT, "rev-parse", "--short", "HEAD"], text=True).strip()
+        commit = subprocess.check_output(["git", "-C", ROOT, "log", "-1", "--format=%h", "--", "lib"], text=True).strip()
     except Exception:
         commit = "unknown"
-    print("HomeSync code-level test checks")
-    print(f"Commit: {commit}   Date: {date.today().isoformat()}   Checks: {len(CHECKS)}")
+    print("HomeSync code checks")
+    print(f"App code commit: {commit}   Date: {date.today().isoformat()}   Checks: {len(CHECKS)}")
     print("=" * 78)
 
     results = {}

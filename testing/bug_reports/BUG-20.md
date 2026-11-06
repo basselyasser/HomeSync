@@ -3,7 +3,7 @@
 - Severity: Low
 - Related tests: Documentation review
 - Build: commit `d9b139f` (main, 5 Nov 2026)
-- Found by: code review (see `testing/static_checks.py`). To be confirmed on a device.
+- Found by: code review (see `testing/code_checks.py`). To be confirmed on a device.
 
 ## Steps to reproduce
 1. Follow 'How to run' step 3

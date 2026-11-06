@@ -3,7 +3,7 @@
 - Severity: High
 - Related tests: TC-ROOM-01, TC-ROOM-02, TC-DEV-01, SD-07
 - Build: commit `d9b139f` (main, 5 Nov 2026)
-- Found by: code review (see `testing/static_checks.py`). To be confirmed on a device.
+- Found by: code review (see `testing/code_checks.py`). To be confirmed on a device.
 
 ## Steps to reproduce
 1. Log in

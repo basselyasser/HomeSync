@@ -1,5 +1,5 @@
-HomeSync code-level test checks
-Commit: d9b139f   Date: 2026-11-06   Checks: 79
+HomeSync code checks
+App code commit: d9b139f   Date: 2026-11-06   Checks: 79
 ==============================================================================
 [DEFECT ] TC-NAV-01   initialRoute is HomeScreen, which overrides home: SplashScreen2
             at lib/main.dart:46
