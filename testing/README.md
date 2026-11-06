@@ -1,63 +1,67 @@
-# HomeSync – Test Execution Report
+# HomeSync Test Report (Cycle 1)
 
-| | |
-|---|---|
-| **Build tested** | `main` @ [`d9b139f`](https://github.com/basselyasser/HomeSync/commit/d9b139f0f0788d304d65f0fc62f66571647c49d9) (5 Nov 2026) |
-| **Test cycle** | Cycle 1, 6 Nov 2026 |
-| **Tester** | Bassel Yasser Shaker |
-| **Test cases** | [HomeSync_Test_Cases_Executed.xlsx](HomeSync_Test_Cases_Executed.xlsx) |
-| **Evidence** | [evidence/static_check_results.txt](evidence/static_check_results.txt) (produced by [static_checks.py](static_checks.py)) |
-| **Bugs** | [bug_reports/](bug_reports/README.md) (20 reports, ready to file as GitHub issues) |
+Tester: Bassel Yasser Shaker
+Date: 6 November 2026
+Build tested: main branch, commit [d9b139f](https://github.com/basselyasser/HomeSync/commit/d9b139f0f0788d304d65f0fc62f66571647c49d9)
+
+## Files in this folder
+
+- `HomeSync_Test_Cases_Executed.xlsx`: all test cases with their results
+- `static_checks.py`: script used to check each result against the code
+- `evidence/static_check_results.txt`: output of the script
+- `bug_reports/`: one file per bug found
 
 ## Scope
 
-- **Manual test cases (61):** app launch, login, register, forgot password, home, rooms, devices, switch, smart plug, air conditioner, servo, automation rules, server IP setting.
-- **API test cases (22):** backend REST endpoints, to run with Postman.
-- **Suspected defects (13):** problems spotted while reading the code, each linked to the test that confirms it.
+I wrote 61 manual test cases for the mobile app and 22 API test cases for the backend. The manual cases cover app launch, login, registration, forgot password, the home screen, rooms, devices, switches, the smart plug, the air conditioner, the servo, automation rules and the server IP setting. I also listed 13 suspected defects that I noticed while reading the code, each linked to the test that would confirm it.
 
-Test design techniques used: equivalence partitioning, boundary value analysis, decision table, state transition, use case and error guessing (shown per test in the *Design Technique* column).
+Test design techniques used: equivalence partitioning, boundary value analysis, decision tables, state transition, use cases and error guessing.
 
-## How the tests were executed
+## How the tests were run
 
-This cycle was run at **code level**, without a phone or the backend:
+The backend server, Firebase project, Home Assistant and ESP32 hardware were not available for this cycle, so I ran the tests at code level. For each test case I traced the steps through the Flutter code and compared what the code does with the expected result.
 
-1. Each test case was traced through the Flutter source to the code that decides its result.
-2. Every verdict is backed by a check in `static_checks.py`. Each check searches for the exact line that makes the test pass or fail and prints `file:line`.
-3. **Pass / Fail** is used only where the code alone decides the result (form validation, navigation, missing or empty handlers, widgets that never update).
-4. **Blocked** is used where the result depends on the backend server, the Firebase project, Home Assistant or the ESP32 hardware. The backend code is not in this repository, so all 22 API tests are Blocked. Code observations are still written in *Actual Result*.
+I marked a test as Pass or Fail only when the code alone decides the result, for example form validation, navigation, or a button that has no handler. When the result depends on the server or the hardware, I marked it as Blocked and wrote down what the code shows.
 
-To re-run the evidence after a fix:
+To make the results easy to check, `static_checks.py` searches for the line of code behind each verdict and prints the file name and line number. You can run it from the repository root:
 
 ```
-python testing/static_checks.py > testing/evidence/static_check_results.txt
+python testing/static_checks.py
 ```
 
-A fixed bug turns its test from `FAIL` to `PASS` in the output.
+After a bug is fixed, the related test changes from FAIL to PASS in the output.
 
 ## Results
 
-| Sheet | Total | Pass | Fail | Blocked | Pass rate* |
-|---|---|---|---|---|---|
-| Manual Test Cases | 61 | 23 | 22 | 16 | 51% |
-| API Test Cases | 22 | 0 | 0 | 22 | – |
-| **Total** | **83** | **23** | **22** | **38** | **51%** |
+| Sheet | Total | Pass | Fail | Blocked |
+|---|---|---|---|---|
+| Manual test cases | 61 | 23 | 22 | 16 |
+| API test cases | 22 | 0 | 0 | 22 |
+| Total | 83 | 23 | 22 | 38 |
 
-\* Pass ÷ (Pass + Fail). Blocked cases are left out.
+Pass rate is 51% (passed tests out of passed and failed tests; blocked tests are not counted). All API tests are blocked because the backend code is not in this repository.
 
-**Suspected defects:** 12 of 13 confirmed in code. SD-08 (backend returns every user's rooms) waits for API-16.
+12 of the 13 suspected defects were confirmed in the code. SD-08 needs API-16 to be run against the backend.
 
 ## Main findings
 
-| Severity | Bugs |
-|---|---|
-| High (6) | BUG-01 app skips splash and login · BUG-08 Rooms / All Devices cannot be opened and show no data · BUG-11 smart plug does nothing · BUG-12 AC controls do not move · BUG-13 AC power sends no command · BUG-18 Firestore open to anyone |
-| Medium (6) | BUG-03 generic login errors · BUG-04 forgot password not working · BUG-05 register ignores backend errors · BUG-10 switch errors not shown · BUG-14 rule screen overwrites the saved threshold · BUG-16 server IP hard-coded |
-| Low (8) | BUG-02, BUG-06, BUG-07, BUG-09, BUG-15, BUG-17, BUG-19, BUG-20 |
+I logged 20 bugs: 6 high, 6 medium and 8 low.
 
-Working well in code: all login and register form validation and boundaries, password masking, double-tap protection, logout, weather error handling, servo error handling and the automation rule slider ranges.
+The high severity bugs are:
 
-## Open items for the next cycle
+- BUG-01: the app opens on the Home screen and skips the splash and login screens.
+- BUG-08: the Rooms and All Devices screens cannot be opened from the app and show no data.
+- BUG-11: tapping the smart plug does not change its state.
+- BUG-12: the air conditioner sliders and mode buttons do not respond.
+- BUG-13: the air conditioner power button sends no command.
+- BUG-18: the Firestore database rules allow anyone to read and write.
 
-1. Run the 38 Blocked cases on an Android phone with the backend, Firebase, Home Assistant and ESP32 running. Use the Postman collection for the API sheet.
-2. Confirm each bug on a device, add a screenshot or screen recording, and file it as a GitHub issue. Then put the issue number in the *Bug ID* column.
-3. Retest after fixes and re-run `static_checks.py`.
+The medium bugs cover unclear login error messages, the forgot password screen not working, unhandled backend errors on registration and switch toggling, the rule screen overwriting a saved threshold, and the server IP being hard-coded. Full details are in `bug_reports/`.
+
+The areas that work as expected in the code are login and registration form validation, password masking, protection against double taps, logout, the weather error message, servo error handling and the automation rule slider ranges.
+
+## Next steps
+
+1. Run the 38 blocked tests on an Android device with the backend, Firebase, Home Assistant and ESP32 running, and run the API tests in Postman.
+2. Confirm each bug on a device and add a screenshot before reporting it as a GitHub issue.
+3. Retest after the fixes and run `static_checks.py` again.

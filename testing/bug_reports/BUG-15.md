@@ -1,9 +1,9 @@
 # BUG-15: Failed rule save shows no message
 
-**Severity:** Low  
-**Related tests:** TC-RULE-06, SD-10  
-**Build:** commit `d9b139f` (main, 5 Nov 2026)  
-**Found by:** code-level execution (`testing/static_checks.py`). Confirm on a device before closing.
+- Severity: Low
+- Related tests: TC-RULE-06, SD-10
+- Build: commit `d9b139f` (main, 5 Nov 2026)
+- Found by: code review (see `testing/static_checks.py`). To be confirmed on a device.
 
 ## Steps to reproduce
 1. Stop the backend

@@ -1,6 +1,6 @@
 # Bug reports
 
-Each file is ready to paste into a new GitHub issue (title = first line, body = the rest).
+One file per bug. To report a bug as a GitHub issue, use the first line as the title and the rest as the description.
 
 | Bug | Title | Severity | Related tests |
 |---|---|---|---|

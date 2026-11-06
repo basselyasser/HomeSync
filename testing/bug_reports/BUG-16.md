@@ -1,9 +1,9 @@
 # BUG-16: Server IP setting cannot be opened and is ignored; backend IP is hard-coded
 
-**Severity:** Medium  
-**Related tests:** TC-IP-01, TC-SW-04  
-**Build:** commit `d9b139f` (main, 5 Nov 2026)  
-**Found by:** code-level execution (`testing/static_checks.py`). Confirm on a device before closing.
+- Severity: Medium
+- Related tests: TC-IP-01, TC-SW-04
+- Build: commit `d9b139f` (main, 5 Nov 2026)
+- Found by: code review (see `testing/static_checks.py`). To be confirmed on a device.
 
 ## Steps to reproduce
 1. Look for the server IP setting

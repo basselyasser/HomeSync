@@ -1,9 +1,9 @@
 # BUG-20: README refers to files that are not in the repo
 
-**Severity:** Low  
-**Related tests:** Documentation review  
-**Build:** commit `d9b139f` (main, 5 Nov 2026)  
-**Found by:** code-level execution (`testing/static_checks.py`). Confirm on a device before closing.
+- Severity: Low
+- Related tests: Documentation review
+- Build: commit `d9b139f` (main, 5 Nov 2026)
+- Found by: code review (see `testing/static_checks.py`). To be confirmed on a device.
 
 ## Steps to reproduce
 1. Follow 'How to run' step 3

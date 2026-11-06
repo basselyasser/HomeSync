@@ -1,9 +1,9 @@
 # BUG-09: Empty or blank room name gives no feedback
 
-**Severity:** Low  
-**Related tests:** TC-ROOM-03, TC-ROOM-04, SD-06  
-**Build:** commit `d9b139f` (main, 5 Nov 2026)  
-**Found by:** code-level execution (`testing/static_checks.py`). Confirm on a device before closing.
+- Severity: Low
+- Related tests: TC-ROOM-03, TC-ROOM-04, SD-06
+- Build: commit `d9b139f` (main, 5 Nov 2026)
+- Found by: code review (see `testing/static_checks.py`). To be confirmed on a device.
 
 ## Steps to reproduce
 1. Open Create New Room

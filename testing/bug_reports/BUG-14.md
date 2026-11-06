@@ -1,9 +1,9 @@
 # BUG-14: Rule screen does not show the saved threshold and can overwrite it
 
-**Severity:** Medium  
-**Related tests:** TC-RULE-03 (extra finding)  
-**Build:** commit `d9b139f` (main, 5 Nov 2026)  
-**Found by:** code-level execution (`testing/static_checks.py`). Confirm on a device before closing.
+- Severity: Medium
+- Related tests: TC-RULE-03 (extra finding)
+- Build: commit `d9b139f` (main, 5 Nov 2026)
+- Found by: code review (see `testing/static_checks.py`). To be confirmed on a device.
 
 ## Steps to reproduce
 1. Save a temperature rule at 30

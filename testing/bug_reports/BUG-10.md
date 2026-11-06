@@ -1,9 +1,9 @@
 # BUG-10: Switch toggle failure shows no error
 
-**Severity:** Medium  
-**Related tests:** TC-SW-03  
-**Build:** commit `d9b139f` (main, 5 Nov 2026)  
-**Found by:** code-level execution (`testing/static_checks.py`). Confirm on a device before closing.
+- Severity: Medium
+- Related tests: TC-SW-03
+- Build: commit `d9b139f` (main, 5 Nov 2026)
+- Found by: code review (see `testing/static_checks.py`). To be confirmed on a device.
 
 ## Steps to reproduce
 1. Stop the backend

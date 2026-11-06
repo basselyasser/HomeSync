@@ -1,9 +1,9 @@
 # BUG-12: Air conditioner controls do not respond
 
-**Severity:** High  
-**Related tests:** TC-AC-01 to TC-AC-04  
-**Build:** commit `d9b139f` (main, 5 Nov 2026)  
-**Found by:** code-level execution (`testing/static_checks.py`). Confirm on a device before closing.
+- Severity: High
+- Related tests: TC-AC-01 to TC-AC-04
+- Build: commit `d9b139f` (main, 5 Nov 2026)
+- Found by: code review (see `testing/static_checks.py`). To be confirmed on a device.
 
 ## Steps to reproduce
 1. Open Air Conditioner

@@ -1,9 +1,9 @@
 # BUG-03: Login shows 'Something went wrong' for invalid email, no internet and (likely) wrong credentials
 
-**Severity:** Medium  
-**Related tests:** TC-LOG-04, TC-LOG-14, TC-LOG-08, TC-LOG-09, SD-03  
-**Build:** commit `d9b139f` (main, 5 Nov 2026)  
-**Found by:** code-level execution (`testing/static_checks.py`). Confirm on a device before closing.
+- Severity: Medium
+- Related tests: TC-LOG-04, TC-LOG-14, TC-LOG-08, TC-LOG-09, SD-03
+- Build: commit `d9b139f` (main, 5 Nov 2026)
+- Found by: code review (see `testing/static_checks.py`). To be confirmed on a device.
 
 ## Steps to reproduce
 1. Enter 'test@' and a 6+ char password

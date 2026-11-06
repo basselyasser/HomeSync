@@ -62,17 +62,17 @@ lib/
 
 ## Testing
 
-The app was tested against 61 manual and 22 API test cases. They used equivalence partitioning,
-boundary value analysis, decision tables, state transition and error guessing.
+The app has 61 manual and 22 API test cases, designed with equivalence partitioning, boundary
+value analysis, decision tables, state transition and error guessing.
 
 - Test cases and results: [testing/HomeSync_Test_Cases_Executed.xlsx](testing/HomeSync_Test_Cases_Executed.xlsx)
 - Test report: [testing/README.md](testing/README.md)
-- Evidence: [testing/evidence/static_check_results.txt](testing/evidence/static_check_results.txt), produced by [testing/static_checks.py](testing/static_checks.py)
+- Evidence: [testing/evidence/static_check_results.txt](testing/evidence/static_check_results.txt) (output of [testing/static_checks.py](testing/static_checks.py))
 - Bug reports: [testing/bug_reports/](testing/bug_reports/README.md)
 
-Cycle 1 (6 Nov 2026, commit `d9b139f`) was run at code level: 23 passed, 22 failed and
-38 were blocked because they need the backend or the hardware. It logged 20 bugs (6 high) and
-confirmed 12 of 13 suspected defects. The blocked cases are planned for a device run.
+The first test cycle (6 November 2026, commit `d9b139f`) was run at code level. 23 tests passed,
+22 failed and 38 were blocked because they need the backend or the hardware. 20 bugs were logged,
+6 of them high severity. The blocked tests will be run on a device in the next cycle.
 
 ## Team
 
@@ -80,13 +80,13 @@ Graduation project team, Arab Academy for Science, Technology and Maritime Trans
 
 My part:
 
-- **Development:** designed and built the Home and Rooms screens in Flutter to monitor and
-  operate all connected devices in real time. Programmed the ESP32 to handle Wi-Fi
-  communication and run local automation rules that link sensors to actuators such as motors
-  and lamps. Integrated the hardware and the mobile app with the Home Assistant API to keep
-  device states in sync across the system.
-- **Testing (QA):** wrote 83 test cases (61 manual, 22 API) covering login, registration,
-  rooms, device control, automation rules and the backend endpoints. Ran test cycle 1 at code
-  level with a small script that links every verdict to the exact line of code, then logged
-  20 bugs with steps, expected and actual results, and GitHub links to the code. Results and
-  evidence are in [testing/](testing/README.md).
+I designed and built the Home and Rooms screens in Flutter to monitor and operate all connected
+devices in real time. I programmed the ESP32 to handle Wi-Fi communication and run local
+automation rules that link sensors to actuators such as motors and lamps, and I integrated the
+hardware and the mobile app with the Home Assistant API to keep device states in sync.
+
+I was also responsible for testing. I wrote 83 test cases (61 manual and 22 API) covering login,
+registration, rooms, device control, automation rules and the backend endpoints. I ran the first
+test cycle at code level, checking each result against the source code, and logged 20 bugs with
+steps to reproduce, expected and actual results, and links to the code. The test cases, report
+and bug reports are in the [testing](testing/README.md) folder.

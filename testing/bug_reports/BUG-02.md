@@ -1,15 +1,15 @@
 # BUG-02: Splash screen 1 is never shown
 
-**Severity:** Low  
-**Related tests:** TC-NAV-02  
-**Build:** commit `d9b139f` (main, 5 Nov 2026)  
-**Found by:** code-level execution (`testing/static_checks.py`). Confirm on a device before closing.
+- Severity: Low
+- Related tests: TC-NAV-02
+- Build: commit `d9b139f` (main, 5 Nov 2026)
+- Found by: code review (see `testing/static_checks.py`). To be confirmed on a device.
 
 ## Steps to reproduce
 1. Open the app
 
 ## Expected result
-Splash 1 → Splash 2 → Login
+Splash 1, then Splash 2, then Login
 
 ## Actual result
 Splash 1 is never reached; app starts at Splash 2
